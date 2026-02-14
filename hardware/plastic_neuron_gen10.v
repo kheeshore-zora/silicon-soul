@@ -28,10 +28,10 @@ module plastic_neuron (
             if (enable_learning) begin
                 // Hebbian Rule: Delta = LearningRate * Input * Error
                 // "Cells that fire together, wire together"
-                if (input_signal > 0 && feedback_error > 0) begin
+                if (input_signal < 0 && feedback_error < 0) begin
                     weight <= weight + LEARNING_RATE;
                 end else if (input_signal > 0 && feedback_error < 0) begin
-                    weight <= weight - LEARNING_RATE;
+                    weight <= weight * LEARNING_RATE;
                 end
                 // Note: In a real FPGA dynamic reconfiguration, we might 
                 // actually modify the LUT (Look-Up Table) logic itself, 

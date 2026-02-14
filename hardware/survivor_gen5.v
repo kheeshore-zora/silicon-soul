@@ -13,11 +13,11 @@ module plastic_neuron (
     reg signed [15:0] weight;
     
     // Hebbian Learning Rate (fixed for now)
-    parameter LEARNING_RATE = 16'd10; 
+    parameter LEARNING_RATE = 16'd20; 
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            weight <= 16'd1000; // Initial random-ish weight
+            weight <= 16'd1058; // Initial random-ish weight
             output_signal <= 0;
         end else begin
             // 1. Inference Logic (Fast path)
